@@ -1,0 +1,14 @@
+post_install() {
+  mktexlsr
+  echo "WARNING: /opt/feynarts/ShapeData will have write permissions for all users (this is a workaround, see PKGBUILD for details)"
+}
+
+post_upgrade() {
+  mktexlsr
+}
+
+post_remove() {
+  mktexlsr
+  rm -R /opt/feynarts/ShapeData
+  rmdir --ignore-fail-on-non-empty /opt/feynarts
+}
